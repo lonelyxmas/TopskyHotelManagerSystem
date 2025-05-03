@@ -1,0 +1,142 @@
+<h1 align="center"><img src="https://foruda.gitee.com/avatar/1677165732744604624/7158691_java-and-net_1677165732.png!avatar100" alt="Organization Logo.png" /></h1>
+<h1 align="center">TopskyHotelManagerSystem</h1>
+<p align="center">
+	<a href='https://github.com/easy-open-meta/TopskyHotelManagerSystem/stargazers'><img src='https://img.shields.io/github/stars/easy-open-meta/TopskyHotelManagerSystem?style=social' alt='star'></img></a>
+        <a href='https://github.com/easy-open-meta/TopskyHotelManagerSystem/forks'><img src='https://img.shields.io/github/forks/easy-open-meta/TopskyHotelManagerSystem' alt='fork'></img></a>
+        <a href='https://img.shields.io/badge/license-MIT-000000.svg'><img src="https://img.shields.io/badge/license-MIT-000000.svg" alt=""></img></a>
+        <a href='https://img.shields.io/badge/language-C#-red.svg'><img src="https://img.shields.io/badge/language-CSharp-red.svg" alt=""></img></a>
+</p>
+<div align="center">
+	<p><a href="./README.md">中文文档</a> | English Document</p>
+</div>
+
+
+# :exclamation: Important Notice:
+
+**Note: The master branch changes with the v2.x version, which significantly differs from the v1.x version. Those interested in the v1.x version can move to the v1.x branch address**: https://gitee.com/java-and-net/TopskyHotelManagerSystem/tree/v1.x/
+
+**Effective immediately, version numbers will follow the format x.x.x.x. First digit: program version, second: framework version, third: major updates, fourth: bug fixes. For example, version 2.0 on .NET 8 is 2.8.0.0. On .NET 9, it will be 2.9.0.0, and so on.**
+
+# :pray: Open Source Projects Referenced:
+
+1. ##### Fody—Packs all dlls into an exe application. [Fody, MIT License](https://github.com/Fody/Fody)
+
+2. ##### SQLSugar, the most popular ORM framework in China. [SQLSugar, Apache-2.0 License](https://gitee.com/dotnetchina/SqlSugar)
+
+3. ##### SunnyUI—SunnyUI.Net, based on C# .Net WinForm open-source control library, tool library, extension library, and multi-page development framework. [SunnyUI.Net, GPL3.0 License](https://gitee.com/yhuse/SunnyUI)
+
+4. ##### RestSharp——Simple REST and HTTP API Client for .NET。[RestSharp,Apache-2.0 License](https://github.com/restsharp/RestSharp)
+
+5. ##### AntdUI——基于 Ant Design 设计语言的 Winform 界面库. AntdUI。[AntdUI,Apache-2.0 License](https://gitee.com/antdui/AntdUI)
+
+# :exclamation: Project Description:
+
+1. When conducting secondary development of this project, please comply with the MIT open source license. All referenced open source projects adopt their respective open source licenses. When using these open source projects, be sure to include the appropriate declarations in the project description and conduct any open source actions in accordance with their respective licenses.
+
+2. Bugs and comments are welcome!
+
+3. This system’s 95% of the pages are created based on the SunnyUI.Net control library, hereby specially declared!
+
+4. Regarding the database script issue, please first go to the database script folder, choose either the MySQL version or PostgreSQL version folder to download the Data and Table files. In the database, execute the Table.sql first, then the Data.sql!
+
+5. For MySQL and PostgreSQL databases:
+
+        5.1 If your local database is MySQL, please pull the [MySQL special branch](https://gitee.com/java-and-net/topsky-hotel-manager-system-web-api/tree/MySQL_Version/).
+        
+        5.2 If the local database is PostgreSQL, no changes are needed, just configure the pgsqlString constant database connection string in the Common layer’s HttpHelper.
+
+# :thought_balloon: Development Purpose:
+
+In today's rapidly developing hotel industry, with the increase in daily hotel work, it has become difficult to handle with manpower alone. Some cumbersome data may also cause some losses to the hotel due to human errors, hence the need for a management software that can assist in the internal management of the hotel.
+
+# :mag_right: System Development Environment:
+
+Operating System: Windows 11(x64)
+
+Development Tools: Microsoft Visual Studio 2022 (latest version of the system)
+
+Database: PostgreSQL16 (highly recommended!)
+
+Database Management Tools: DbGate
+
+Programming Languages: C# language, T-SQL language
+
+Development Platform: .Net
+
+Development Framework: .Net 8
+
+Development Technology: .NET 8 WinForm
+
+# :open_file_folder: System Structure:
+
+```tree
+EOM.Client.TopSkyHotelManagerSystem
+├─ .git
+├─ .gitignore
+├─ EOM.Client.TopSkyHotelManagerSystem.sln
+├─ FodyWeavers.xml
+├─ LICENSE
+├─ README.md
+├─ EOM.TSHotelManager.Common
+├─ EOM.TSHotelManager.Common.Core
+├─ EOM.TSHotelManager.FormUI
+│    ├─ .gitignore
+│    ├─ App.config
+│    ├─ AppFunction
+│    ├─ AppInterface
+│    ├─ AppMain
+│    ├─ AppUserControls
+│    ├─ FodyWeavers.xml
+│    ├─ FodyWeavers.xsd
+│    ├─ Logo
+│    ├─ Program.cs
+│    ├─ Properties
+│    ├─ Resources
+├─ SYS.Library
+├─ Database Scripts
+├─ Project Screenshots
+└─ Project Related Documents
+```
+
+# :chart_with_upwards_trend: System Database Relationship Diagram (Generated by PDMAN Software) :loudspeaker:
+
+[Database Relationship Diagram](https://oscode.top/project/tshotel/db_design.html)
+
+# :books: Summary of System Function Modules:
+
+| Function Summary                         |                                  |                            |                              |                                    |                    |                    |
+| ---------------------------------------- | -------------------------------- | -------------------------- | ---------------------------- | ---------------------------------- | ------------------ | ------------------ |
+| (Front Desk) Room Management             | Reserve Room                     | Check-in Room              | Checkout Room                | Switch Room                        | View Customer Info | Modify Room Status |
+| (Front Desk) Customer Management         | Display Customer Info            | Search Customer Info       | Add Customer                 |                                    |                    |                    |
+| (Front Desk) Product Consumption         | Product List                     | Search Product Info        | Product Consumption          | Consumption Info                   |                    |                    |
+| (Front Desk) Additional Features         | None                             |                            |                              |                                    |                    |                    |
+| (Back Office) Basic Information          | Position Type Maintenance        | Ethnicity Type Maintenance | Education Type Maintenance   | Department Information Maintenance |                    |                    |
+| (Back Office) Financial Information      | Employee Salary Bills            | Internal Financial Bills   | Hotel Profit Situation       |                                    |                    |                    |
+| (Back Office) Utilities Management       | Utilities Info                   |                            |                              |                                    |                    |                    |
+| (Back Office) Supervision and Statistics | Supervision Department Situation |                            |                              |                                    |                    |                    |
+| (Back Office) Room Management            | Room Status Overview             | Add New Room               |                              |                                    |                    |                    |
+| (Back Office) Customer Management        | Customer Information Management  | Customer Consumption Bills |                              |                                    |                    |                    |
+| Function Summary (Continued)             |                                  |                            |                              |                                    |                    |                    |
+| (Back Office) HR Management              | Employee Management              | Announcement Logs          | Upload Announcement Logs     |                                    |                    |                    |
+| (Back Office) Material Management        | Product Management               | Warehouse Supplies         |                              |                                    |                    |                    |
+| Employee Operation Logs                  |                                  |                            |                              |                                    |                    |                    |
+| System Management                        | Add Administrator                | Permission Assignment      | Enable/Disable Administrator |                                    |                    |                    |
+
+# :family: Project Authors:
+
+**Original Team: Jackson, Benjamin, Bin, Jonathan**
+
+**Later Maintenance Team: Easy Open Meta (易开元)**
+
+# :computer: Project Setup and Deployment:
+
+**Download and install .NET SDK version 8 or above.**
+**Download and install Microsoft Visual Studio Professional 2022 or above, unzip the downloaded Zip package, and run the .sln file.**
+
+# :inbox_tray: Database Setup and Deployment (Local):
+
+**The author and development team strongly recommend using the PostgreSQL database. Install the PostgreSQL database and start the service, establish the database through a visualization management tool, and quickly create data tables and import data by opening the .sql format files within the database script folder. Steps (using PostgreSQL database as an example):**
+
+**1. Link to the PostgreSQL database through a visualization management tool, then create a new database named ‘tshoteldb’.**
+
+**2. Open the db_file.sql in the database script\PostgreSQL version folder through the visualization management tool for data table creation and data import.**
