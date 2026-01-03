@@ -58,5 +58,25 @@ namespace EOM.TSHotelManagement.Common
         /// 存储当前用户Token
         /// </summary>
         public static string UserToken = "";
+
+        /// <summary>
+        /// 存储当前用户CSRF-Token
+        /// </summary>
+        public static string? CsrfToken = null;
+
+        /// <summary>
+        /// 存储当前用户CSRF-Token是否需要刷新标记
+        /// </summary>
+        public static bool NeedRefreshCsrfToken = false;
+
+        /// <summary>
+        /// 存储当前用户密码
+        /// </summary>
+        public static string Password = "";
+
+        /// <summary>
+        /// 软件更新日志
+        /// </summary>
+        public static string SoftwareReleaseLog = "";
     }
 }

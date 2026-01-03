@@ -13,15 +13,17 @@ namespace EOM.TSHotelManagement.Common
     /// </summary>
     public static class HttpHelper
     {
-        #region 受限于打包插件的限制才放在这，个人开发时建议统一在App.Config进行配置
-
+#if DEBUG
         /// <summary>
         /// WebApi URL
         /// </summary>
-        public const string apiUrl = "https://tshotel-api.oscode.top/api/";
-        public const string debugUrl = "http://localhost:63001/api/";
-
-        #endregion
+        public const string apiUrl = "http://localhost:63001/api/";
+#elif RELEASE
+        /// <summary>
+        /// WebApi URL
+        /// </summary>
+        public const string apiUrl = "https://tshotel.oscode.top/api/";
+#endif
 
         public class IgnoreNullValuesConverter : JsonConverter
         {
@@ -325,6 +327,13 @@ namespace EOM.TSHotelManagement.Common
 
             request.AddHeader("Authorization", string.Format("Bearer {0}", token));
 
+            if (LoginInfo.NeedRefreshCsrfToken)
+            {
+                CsrfTokenHelper.RefreshCsrfToken();
+            }
+
+            request.AddHeader("X-CSRF-TOKEN-HEADER", LoginInfo.CsrfToken ?? CsrfTokenHelper.RefreshCsrfToken());
+
             reponse = client.ExecutePost(request);
 
             var responseString = reponse.Content;
@@ -401,28 +410,6 @@ namespace EOM.TSHotelManagement.Common
         }
 
         /// <summary>
-        /// Json转数组列表
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="JsonStr"></param>
-        /// <returns></returns>
-        public static List<T>? JsonToList<T>(string JsonStr)
-        {
-            return JsonConvert.DeserializeObject<List<T>>(JsonStr);
-        }
-
-        /// <summary>
-        /// Json转分页列表
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="json"></param>
-        /// <returns></returns>
-        public static T? JsonToPageList<T>(string json) where T : class
-        {
-            return JsonConvert.DeserializeObject<T>(json);
-        }
-
-        /// <summary>
         /// Json转实体
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -431,28 +418,6 @@ namespace EOM.TSHotelManagement.Common
         public static T? JsonToModel<T>(this string input)
         {
             return JsonConvert.DeserializeObject<T>(input);
-        }
-
-        /// <summary>
-        /// 实体转Json
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        public static string ModelToJson<T>(this T input)
-        {
-            try
-            {
-                return JsonConvert.SerializeObject(input, new JsonSerializerSettings
-                {
-                    Converters = { new IgnoreNullValuesConverter(true) },
-                    Formatting = Formatting.Indented // 如果需要格式化输出
-                });
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
         }
     }
 }
